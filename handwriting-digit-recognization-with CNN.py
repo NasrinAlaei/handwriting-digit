@@ -85,7 +85,17 @@ remaining_images, remaining_labels = __read_hoda_cdb('RemainingSamples.cdb')
 train_img =np.concatenate([train_images,remaining_images])
 label_img =np.concatenate([train_labels,remaining_labels])
 
-"""I used the keras Sequential API"""
+"""I used the keras Sequential API
+
+the first is the convolutional(Conv2D) layer. choosed to set 64 filters (5,5) for the two firsts conv2D layers and 32 filters (3,3) for the two last ones.  
+the second important layer in CNN is the Maxpooling (2,2) in the each layers.
+dropouts randomly a propotion of the network and forces the network to learn featurees in a distributed way.(dropout(0.25))
+
+used the  one fullyconnected layer(dense) with 512 neuron and relu activation.
+and finally used the output layer (is fullyconnected) with 10 neuron(class) and softmax activation .
+
+"""
+
 
 # build the CNN model
 model=Sequential()
